@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
+#include <stdio.h>
 
 /* XXX: for read, write; temporary? */
 #include <sys/uio.h>
@@ -134,6 +135,8 @@ static void mu_open_file()     /* C-string-name flags - fd */
     int fd;
     char pathbuf[PATH_MAX];
     char *path = abs_path(pathbuf, PATH_MAX, (char *)UNHEAPIFY(ST1));
+
+    printf("mu_open_file %s \n",path); fflush(stdout);
 
     if (path == NULL)
         return abort_zmsg("path too long");

@@ -1858,6 +1858,10 @@ ld lib/du-cached.mu4
    0 being-loaded !
    begin  catch quit ?error  again ;
 
+( RD playing )
+: 0> 0 > ;
+: clear depth 0> if depth 0 do .s drop loop then ;
+
 ( Identify ourselves.)
 -d  muforth
 
